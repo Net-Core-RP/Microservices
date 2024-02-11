@@ -3,7 +3,7 @@
     {
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "c_api_reservation",
           "Port": 9000
         }
       ],
@@ -15,7 +15,7 @@
     {
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "c_api_contact",
           "Port": 8000
         }
       ],
