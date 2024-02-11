@@ -1,0 +1,48 @@
+version: "3.1"
+services:
+   s_api_getway:
+     container_name: c_api_getway
+     image: rasul/apigetway
+     build:
+       context: .
+       dockerfile: APIGetway/Dockerfile
+     ports:
+       - 80:80
+     networks:
+       - micro_net
+       - int_net
+
+   s_contact_api:
+     container_name: c_api_contact 
+     image: rasul/contactapi
+     build: 
+        context: .
+        dockerfile: Services/ContactAPI/Contact.API/Dockerfile
+     ports: 
+        - 8000:8000
+     networks:
+       - int_net
+    
+   s_reservation_api:
+     container_name: c_api_reservation 
+     image: rasul/reservationapi
+     build: 
+        context: .
+        dockerfile: Services/ReservationAPI/Reservation.API/Dockerfile
+     ports: 
+        - 9000:9000
+     networks:
+       - int_net
+     
+
+
+
+
+
+
+networks:
+    int_net:
+        driver: overlay
+        internal: true
+    micro_net:
+        driver: bridge
